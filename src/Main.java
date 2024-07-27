@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static String[]  datas;
+    public static String[]  dataset;
     public static String[]  types, names, longitudes, latitudes, heights;
 
     public static int       nLoop;
@@ -20,6 +20,7 @@ public class Main {
             return;
         mainLoop();
     }
+
 
     public static void mainLoop()
     {
@@ -58,6 +59,7 @@ public class Main {
         return true;
     }
 
+
     public static void readFile(String filename) throws FileNotFoundException
     {
         List<String> lines = new ArrayList<>();
@@ -69,20 +71,21 @@ public class Main {
 
         scanner.close();
 
-        datas = lines.toArray(new String[0]);
+        dataset = lines.toArray(new String[0]);
     }
+
 
     public static void splitLinesByFormat()
     {
         int i = 0;
 
-        types = new String[datas.length - 1];
-        names = new String[datas.length - 1];
-        longitudes = new String[datas.length - 1];
-        latitudes = new String[datas.length - 1];
-        heights = new String[datas.length - 1];
+        types = new String[dataset.length - 1];
+        names = new String[dataset.length - 1];
+        longitudes = new String[dataset.length - 1];
+        latitudes = new String[dataset.length - 1];
+        heights = new String[dataset.length - 1];
 
-        for (String data : datas)
+        for (String data : dataset)
         {
             if (i != 0)
             {
@@ -95,6 +98,7 @@ public class Main {
             i++;
         }
     }
+
 
     public static void updateCoordinates(String type, int index, Weather.Weathers weather) {
         switch (type)
@@ -117,6 +121,7 @@ public class Main {
                         break;
                 }
                 break;
+
             case "JetPlane":
                 switch (weather)
                 {
@@ -135,6 +140,7 @@ public class Main {
                         break;
                 }
                 break;
+
             case "Helicopter":
                 switch (weather)
                 {
@@ -152,6 +158,7 @@ public class Main {
                         heights[index] = String.valueOf(Integer.parseInt(heights[index]) + 2);
                         break;
                 }
+
                 break;
         }
     }
