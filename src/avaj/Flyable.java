@@ -1,3 +1,5 @@
+package avaj;
+
 public abstract class Flyable {
     protected WeatherTower weatherTower;
 

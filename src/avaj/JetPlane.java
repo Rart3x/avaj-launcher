@@ -1,6 +1,8 @@
-public class Helicopter extends Aircraft {
+package avaj;
 
-    public Helicopter(long p_id, String p_name, String p_type, Coordinates p_coordinates) {
+public class JetPlane extends Aircraft {
+
+    public JetPlane(long p_id, String p_name, String p_type, Coordinates p_coordinates) {
         super(p_id, p_name, p_type, p_coordinates);
     }
 
@@ -15,13 +17,13 @@ public class Helicopter extends Aircraft {
                 coordinates.setHeight(coordinates.getHeight() + 2);
                 break;
             case "RAIN":
-                coordinates.setLongitude(coordinates.getLongitude() + 5);
+                coordinates.setLatitude(coordinates.getLatitude() + 5);
                 break;
             case "FOG":
-                coordinates.setLongitude(coordinates.getLongitude() + 1);
+                coordinates.setLatitude(coordinates.getLatitude() + 1);
                 break;
             case "SNOW":
-                coordinates.setHeight(coordinates.getHeight() - 12);
+                coordinates.setHeight(coordinates.getHeight() - 7);
                 break;
         }
     }

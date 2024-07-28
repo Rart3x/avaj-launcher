@@ -1,3 +1,5 @@
+package avaj;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -16,8 +18,23 @@ public class Main {
 
     public static void main(String[] args)
     {
-        if (!checkArgs(args))
-            return;
+        AircraftFactory aircraftFactory = new AircraftFactory();
+        Tower tower = new Tower();
+
+        Flyable baloon = aircraftFactory.newAircraft("Baloon", "Baloon1", new Coordinates(2, 3, 4));
+        Flyable jetPlane = aircraftFactory.newAircraft("JetPlane", "JetPlane1", new Coordinates(5, 6, 7));
+        Flyable helicopter = aircraftFactory.newAircraft("Helicopter", "Helicopter1", new Coordinates(8, 9, 10));
+
+        tower.register(baloon);
+        tower.register(jetPlane);
+        tower.register(helicopter);
+
+        tower.unregister(baloon);
+        tower.unregister(jetPlane);
+        tower.unregister(helicopter);
+
+//        if (!checkArgs(args))
+//            return;
     }
 
 

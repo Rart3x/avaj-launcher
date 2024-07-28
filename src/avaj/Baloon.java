@@ -1,3 +1,5 @@
+package avaj;
+
 public class Baloon extends Aircraft {
 
     public Baloon(long p_id, String p_name, String p_type, Coordinates p_coordinates) {

@@ -1,3 +1,5 @@
+package avaj;
+
 public class Aircraft extends Flyable {
     protected long        id;
     protected String      name, type;

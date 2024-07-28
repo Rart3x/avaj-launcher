@@ -1,7 +1,11 @@
+package avaj;
+
 import java.io.FileWriter;
 
 
 public class Utils {
+
+    static int i = 0;
 
     public static String concatString(String... p_strings)
     {
@@ -13,13 +17,30 @@ public class Utils {
         return result.toString();
     }
 
+    public static boolean deleteFile(String p_filePath)
+    {
+        java.io.File file = new java.io.File(p_filePath);
+        return file.delete();
+    }
+
     public static void printInFile(String p_string)
     {
         String filePath = "simulation.txt";
 
         try
         {
+            if (i == 0)
+            {
+                if (!deleteFile(filePath))
+                {
+                    printError("Could not delete file: " + filePath);
+                    return;
+                }
+                i++;
+            }
+
             FileWriter fileWriter = new FileWriter(filePath, true);
+
             fileWriter.write(p_string);
             fileWriter.close();
         }

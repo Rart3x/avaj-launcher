@@ -1,3 +1,5 @@
+package avaj;
+
 public final class AircraftFactory {
     private int id = 0;
 
