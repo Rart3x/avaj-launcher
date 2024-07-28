@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static String[]  dataset;
-    public static String[]  types, names, longitudes, latitudes, heights;
+    public static String[]  dataset, types, names;
+    public static int[]     longitudes, latitudes, heights;
 
     public static int       nLoop;
 
@@ -25,7 +25,7 @@ public class Main {
     {
         if (args.length != 1)
         {
-            System.out.println("\u001B[31mUsage: java Main [filename]\u001B[0m");
+            Utils.printError("Usage: Java main [filename]");
             return false;
         }
 
@@ -34,9 +34,9 @@ public class Main {
             readFile(args[0]);
             splitLinesByFormat();
         }
-        catch (FileNotFoundException e)
+        catch (Exception e)
         {
-            System.out.println("\u001B[31mError: " + e.getMessage() + "\u001B[0m");
+            Utils.printError("Error: " + e.getMessage());
             return false;
         }
         return true;
@@ -58,26 +58,29 @@ public class Main {
     }
 
 
-    public static void splitLinesByFormat()
+    public static void splitLinesByFormat() throws NumberFormatException
     {
         int i = 0;
 
         types = new String[dataset.length - 1];
         names = new String[dataset.length - 1];
-        longitudes = new String[dataset.length - 1];
-        latitudes = new String[dataset.length - 1];
-        heights = new String[dataset.length - 1];
+        longitudes = new int[dataset.length - 1];
+        latitudes = new int[dataset.length - 1];
+        heights = new int[dataset.length - 1];
 
         for (String data : dataset)
         {
             if (i != 0)
             {
-                types[i - 1] = data.split(" ")[0];
+                types[i - 1] =  data.split(" ")[0];
                 names[i - 1] = data.split(" ")[1];
-                longitudes[i - 1] = data.split(" ")[2];
-                latitudes[i - 1] = data.split(" ")[3];
-                heights[i - 1] = data.split(" ")[4];
+                longitudes[i - 1] = Integer.parseInt(data.split(" ")[2]);
+                latitudes[i - 1] = Integer.parseInt(data.split(" ")[3]);
+                heights[i - 1] = Integer.parseInt(data.split(" ")[4]);
             }
+            else
+                nLoop = Integer.parseInt(data);
+
             i++;
         }
     }

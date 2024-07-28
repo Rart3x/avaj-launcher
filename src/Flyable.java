@@ -6,4 +6,9 @@ public abstract class Flyable {
     public void registerTower(WeatherTower p_tower) {
         this.weatherTower = p_tower;
     }
+
+    public abstract long    getId();
+    public abstract String  getIdAsString();
+    public abstract String  getName();
+    public abstract String  getType();
 }
