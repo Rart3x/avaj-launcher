@@ -18,23 +18,6 @@ public class Main {
     {
         if (!checkArgs(args))
             return;
-        mainLoop();
-    }
-
-
-    public static void mainLoop()
-    {
-        for (int i = 0; i < nLoop; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                if (types[j].equals("Baloon") || types[j].equals("JetPlane") || types[j].equals("Helicopter"))
-                {
-                    Weather.Weathers weather = Weather.generateWeather(Integer.parseInt(longitudes[j]), Integer.parseInt(latitudes[j]), Integer.parseInt(heights[j]));
-                    updateCoordinates(types[j], j, weather);
-                }
-            }
-        }
     }
 
 
@@ -96,70 +79,6 @@ public class Main {
                 heights[i - 1] = data.split(" ")[4];
             }
             i++;
-        }
-    }
-
-
-    public static void updateCoordinates(String type, int index, Weather.Weathers weather) {
-        switch (type)
-        {
-            case "Baloon":
-                switch (weather)
-                {
-                    case FOG:
-                        heights[index] = String.valueOf(Integer.parseInt(heights[index]) - 3);
-                        break;
-                    case RAIN:
-                        heights[index] = String.valueOf(Integer.parseInt(heights[index]) - 5);
-                        break;
-                    case SNOW:
-                        heights[index] = String.valueOf(Integer.parseInt(heights[index]) - 15);
-                        break;
-                    case SUN:
-                        longitudes[index] = String.valueOf(Integer.parseInt(longitudes[index]) + 2);
-                        heights[index] = String.valueOf(Integer.parseInt(heights[index]) + 4);
-                        break;
-                }
-                break;
-
-            case "JetPlane":
-                switch (weather)
-                {
-                    case FOG:
-                        latitudes[index] = String.valueOf(Integer.parseInt(latitudes[index]) + 1);
-                        break;
-                    case RAIN:
-                        latitudes[index] = String.valueOf(Integer.parseInt(latitudes[index]) + 5);
-                        break;
-                    case SNOW:
-                        heights[index] = String.valueOf(Integer.parseInt(heights[index]) - 7);
-                        break;
-                    case SUN:
-                        latitudes[index] = String.valueOf(Integer.parseInt(latitudes[index]) + 10);
-                        heights[index] = String.valueOf(Integer.parseInt(heights[index]) + 2);
-                        break;
-                }
-                break;
-
-            case "Helicopter":
-                switch (weather)
-                {
-                    case FOG:
-                        longitudes[index] = String.valueOf(Integer.parseInt(longitudes[index]) + 1);
-                        break;
-                    case RAIN:
-                        longitudes[index] = String.valueOf(Integer.parseInt(longitudes[index]) + 5);
-                        break;
-                    case SNOW:
-                        heights[index] = String.valueOf(Integer.parseInt(heights[index]) - 12);
-                        break;
-                    case SUN:
-                        longitudes[index] = String.valueOf(Integer.parseInt(longitudes[index]) + 10);
-                        heights[index] = String.valueOf(Integer.parseInt(heights[index]) + 2);
-                        break;
-                }
-
-                break;
         }
     }
 }
