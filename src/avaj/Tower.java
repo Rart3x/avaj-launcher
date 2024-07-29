@@ -49,7 +49,19 @@ public class Tower {
 
     protected void conditionChanged()
     {
+        List<Flyable> toUnregister = new ArrayList<>();
+
         for (Flyable flyable : observers)
+        {
             flyable.updateConditions();
+            if (flyable.getCoordinates().getHeight() == 0)
+            {
+                Utils.printInFile("Tower says: " + flyable.getName() + "#" + flyable.getType() + "(" + flyable.getIdAsString() + ") landing.\n");
+                toUnregister.add(flyable);
+            }
+        }
+
+        for (Flyable toRemoved : toUnregister)
+            unregister(toRemoved);
     }
 }

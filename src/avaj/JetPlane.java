@@ -6,6 +6,7 @@ public class JetPlane extends Aircraft {
         super(p_id, p_name, p_type, p_coordinates);
     }
 
+    @Override
     public void updateConditions()
     {
         String weather = WeatherProvider.getProvider().getCurrentWeather(coordinates);
