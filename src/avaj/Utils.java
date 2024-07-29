@@ -23,6 +23,89 @@ public class Utils {
         return file.delete();
     }
 
+    public static void printDependingOnWeather(Flyable flyable)
+    {
+        String weather = WeatherProvider.getProvider().getCurrentWeather(flyable.getCoordinates());
+
+        switch (flyable.getType())
+        {
+            case "Baloon":
+                printDependingOnWeatherBaloon(weather, flyable);
+                break;
+
+            case "Helicopter":
+                printDependingOnWeatherHelicopter(weather, flyable);
+                break;
+
+            case "JetPlane":
+                printDependingOnWeatherJetPlane(weather, flyable);
+                break;
+        }
+    }
+
+    public static void printDependingOnWeatherBaloon(String weather, Flyable flyable)
+    {
+        printInFile("Baloon#" + flyable.getName() + "(" + flyable.getIdAsString() + "): ");
+
+        switch (weather)
+        {
+            case "SUN":
+                printInFile("Let's enjoy the good weather and take some pics.\n");
+                break;
+            case "RAIN":
+                printInFile("Damn you rain! You messed up my baloon.\n");
+                break;
+            case "FOG":
+                printInFile("I can't see anything!.\n");
+                break;
+            case "SNOW":
+                printInFile("It's snowing. We're gonna crash.\n");
+                break;
+        }
+    }
+
+    public static void printDependingOnWeatherHelicopter(String weather, Flyable flyable)
+    {
+        printInFile("Helicopter#" + flyable.getName() + "(" + flyable.getIdAsString() + "): ");
+
+        switch (weather)
+        {
+            case "SUN":
+                printInFile("This is hot.\n");
+                break;
+            case "RAIN":
+                printInFile("It's raining. Better watch out for lightings.\n");
+                break;
+            case "FOG":
+                printInFile("I can't see anything!.\n");
+                break;
+            case "SNOW":
+                printInFile("My rotor is going to freeze!\n");
+                break;
+        }
+    }
+
+    public static void printDependingOnWeatherJetPlane(String weather, Flyable flyable)
+    {
+        printInFile("JetPlane#" + flyable.getName() + "(" + flyable.getIdAsString() + "): ");
+
+        switch (weather)
+        {
+            case "SUN":
+                printInFile("This is hot.\n");
+                break;
+            case "RAIN":
+                printInFile("It's raining. Better watch out for lightings.\n");
+                break;
+            case "FOG":
+                printInFile("I can't see anything!.\n");
+                break;
+            case "SNOW":
+                printInFile("OMG! Winter is coming!\n");
+                break;
+        }
+    }
+
     public static void printInFile(String p_string)
     {
         String filePath = "simulation.txt";

@@ -24,19 +24,17 @@ public class Main {
         AircraftFactory aircraftFactory = new AircraftFactory();
         WeatherTower tower = new WeatherTower();
 
-        Flyable baloon = aircraftFactory.newAircraft("Baloon", "Baloon1", new Coordinates(2, 3, 4));
-        Flyable jetPlane = aircraftFactory.newAircraft("JetPlane", "JetPlane1", new Coordinates(5, 6, 7));
-        Flyable helicopter = aircraftFactory.newAircraft("Helicopter", "Helicopter1", new Coordinates(8, 9, 10));
+        Flyable baloon = aircraftFactory.newAircraft("Baloon", "B1", new Coordinates(2, 3, 4));
+        Flyable jetPlane = aircraftFactory.newAircraft("JetPlane", "J1", new Coordinates(5, 6, 7));
+        Flyable helicopter = aircraftFactory.newAircraft("Helicopter", "H1", new Coordinates(8, 9, 10));
 
         tower.register(baloon);
         tower.register(jetPlane);
         tower.register(helicopter);
 
-        System.out.println(baloon.getCoordinates().getLatitude() + " " + baloon.getCoordinates().getLongitude() + " " + baloon.getCoordinates().getHeight());
-        System.out.println(tower.getWeather(baloon.getCoordinates()));
         tower.conditionChanged();
-        System.out.println(baloon.getCoordinates().getLatitude() + " " + baloon.getCoordinates().getLongitude() + " " + baloon.getCoordinates().getHeight());
         baloon.getCoordinates().setHeight(0);
+        jetPlane.getCoordinates().setLongitude(0);
         tower.conditionChanged();
 //
 //        tower.unregister(baloon);
