@@ -26,7 +26,7 @@ public class Main {
 
         Flyable baloon = aircraftFactory.newAircraft("Baloon", "B1", new Coordinates(2, 3, 4));
         Flyable jetPlane = aircraftFactory.newAircraft("JetPlane", "J1", new Coordinates(5, 6, 7));
-        Flyable helicopter = aircraftFactory.newAircraft("Helicopter", "H1", new Coordinates(8, 9, 10));
+        Flyable helicopter = aircraftFactory.newAircraft("Helicopterasasd", "H1", new Coordinates(8, 9, 10));
 
         tower.register(baloon);
         tower.register(jetPlane);

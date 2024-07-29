@@ -12,20 +12,20 @@ public final class AircraftFactory {
 
         if (!List.of(types).contains(p_type))
         {
-            Utils.printError("Invalid flyable type: " + p_type);
-            return null;
+            Utils.printError("Invalid aircraft type: " + p_type);
+            Utils.printInfo("AircraftFactory will return a Baloon by default");
         }
 
         switch (p_type)
         {
-            case "Baloon":
-                flyable = new Baloon(id, p_name, p_type, p_coordinates);
-                break;
             case "JetPlane":
                 flyable = new JetPlane(id, p_name, p_type, p_coordinates);
                 break;
             case "Helicopter":
                 flyable = new Helicopter(id, p_name, p_type, p_coordinates);
+                break;
+            default:
+                flyable = new Baloon(id, p_name, "Baloon", p_coordinates);
                 break;
         }
 
