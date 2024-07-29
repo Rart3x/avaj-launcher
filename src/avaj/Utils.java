@@ -31,11 +31,7 @@ public class Utils {
         {
             if (i == 0)
             {
-                if (!deleteFile(filePath))
-                {
-                    printError("Could not delete file: " + filePath);
-                    return;
-                }
+                deleteFile(filePath);
                 i++;
             }
 

@@ -3,6 +3,7 @@ package avaj;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,31 +11,33 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static String[]  dataset, types, names;
-    public static int[]     longitudes, latitudes, heights;
+    public static String[]      dataset, types, names;
+    public static int[]         longitudes, latitudes, heights;
 
-    public static int       nLoop;
+    public static int           nLoop;
+
+    public static List<String>  existentTypes = Arrays.asList("Baloon", "JetPlane", "Helicopter");
 
 
     public static void main(String[] args)
     {
-        AircraftFactory aircraftFactory = new AircraftFactory();
-        Tower tower = new Tower();
+//        AircraftFactory aircraftFactory = new AircraftFactory();
+//        WeatherTower tower = new WeatherTower();
+//
+//        Flyable baloon = aircraftFactory.newAircraft("Baloon", "Baloon1", new Coordinates(2, 3, 4));
+//        Flyable jetPlane = aircraftFactory.newAircraft("JetPlane", "JetPlane1", new Coordinates(5, 6, 7));
+//        Flyable helicopter = aircraftFactory.newAircraft("Helicopter", "Helicopter1", new Coordinates(8, 9, 10));
+//
+//        tower.register(baloon);
+//        tower.register(jetPlane);
+//        tower.register(helicopter);
+//
+//        tower.unregister(baloon);
+//        tower.unregister(jetPlane);
+//        tower.unregister(helicopter);
 
-        Flyable baloon = aircraftFactory.newAircraft("Baloon", "Baloon1", new Coordinates(2, 3, 4));
-        Flyable jetPlane = aircraftFactory.newAircraft("JetPlane", "JetPlane1", new Coordinates(5, 6, 7));
-        Flyable helicopter = aircraftFactory.newAircraft("Helicopter", "Helicopter1", new Coordinates(8, 9, 10));
-
-        tower.register(baloon);
-        tower.register(jetPlane);
-        tower.register(helicopter);
-
-        tower.unregister(baloon);
-        tower.unregister(jetPlane);
-        tower.unregister(helicopter);
-
-//        if (!checkArgs(args))
-//            return;
+        if (!checkArgs(args))
+            return;
     }
 
 
@@ -53,14 +56,14 @@ public class Main {
         }
         catch (Exception e)
         {
-            Utils.printError("Error: " + e.getMessage());
+            Utils.printError(e.getMessage());
             return false;
         }
         return true;
     }
 
 
-    public static void readFile(String filename) throws FileNotFoundException
+    public static void readFile(String filename) throws Exception
     {
         List<String> lines = new ArrayList<>();
         File file = new File(filename);
@@ -75,7 +78,7 @@ public class Main {
     }
 
 
-    public static void splitLinesByFormat() throws NumberFormatException
+    public static void splitLinesByFormat() throws Exception
     {
         int i = 0;
 
@@ -85,10 +88,19 @@ public class Main {
         latitudes = new int[dataset.length - 1];
         heights = new int[dataset.length - 1];
 
+        if (dataset.length < 2)
+            throw new Exception("Empty file");
+
         for (String data : dataset)
         {
             if (i != 0)
             {
+                if (data.split(" ").length != 5)
+                    throw new Exception("Invalid number of values in line: " + data);
+
+                if (!existentTypes.contains(data.split(" ")[0]))
+                    throw new Exception("Type not found: " + data.split(" ")[0]);
+
                 types[i - 1] =  data.split(" ")[0];
                 names[i - 1] = data.split(" ")[1];
                 longitudes[i - 1] = Integer.parseInt(data.split(" ")[2]);
@@ -100,5 +112,7 @@ public class Main {
 
             i++;
         }
+
+
     }
 }
