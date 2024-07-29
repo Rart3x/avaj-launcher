@@ -47,6 +47,12 @@ public class Tower {
         );
     }
 
+    public void unregisterAll()
+    {
+        while (!observers.isEmpty())
+            unregister(observers.getFirst());
+    }
+
     protected void conditionChanged()
     {
         List<Flyable> toUnregister = new ArrayList<>();

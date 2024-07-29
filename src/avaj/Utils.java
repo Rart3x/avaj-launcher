@@ -56,7 +56,7 @@ public class Utils {
                 printInFile("Damn you rain! You messed up my baloon.\n");
                 break;
             case "FOG":
-                printInFile("I can't see anything!.\n");
+                printInFile("I can't see anything from my Baloon!\n");
                 break;
             case "SNOW":
                 printInFile("It's snowing. We're gonna crash.\n");
@@ -77,7 +77,7 @@ public class Utils {
                 printInFile("It's raining. Better watch out for lightings.\n");
                 break;
             case "FOG":
-                printInFile("I can't see anything!.\n");
+                printInFile("I can't see anything from my Helicopter!\n");
                 break;
             case "SNOW":
                 printInFile("My rotor is going to freeze!\n");
@@ -92,13 +92,13 @@ public class Utils {
         switch (weather)
         {
             case "SUN":
-                printInFile("This is hot.\n");
+                printInFile("Sky is clear ! Let's go MACH2\n");
                 break;
             case "RAIN":
-                printInFile("It's raining. Better watch out for lightings.\n");
+                printInFile("Rainy times, let's dodge stormy clouds\n");
                 break;
             case "FOG":
-                printInFile("I can't see anything!.\n");
+                printInFile("I can't see anything from my JetPlane!\n");
                 break;
             case "SNOW":
                 printInFile("OMG! Winter is coming!\n");
@@ -136,15 +136,5 @@ public class Utils {
     public static void printInfo(String p_info)
     {
         System.out.println("\u001B[34mInfo: " + p_info + "\u001B[0m");
-    }
-
-    public static void printSuccess(String p_success)
-    {
-        System.out.println("\u001B[32mSuccess: " + p_success + "\u001B[0m");
-    }
-
-    public static void printWarning(String p_warning)
-    {
-        System.out.println("\u001B[33mWarning: " + p_warning + "\u001B[0m");
     }
 }

@@ -21,28 +21,34 @@ public class Main {
 
     public static void main(String[] args)
     {
+        try
+        {
+            if (!checkArgs(args))
+                return;
+            mainLoop();
+        }
+        catch (Exception e)
+        {
+            Utils.printError(e.getMessage());
+        }
+    }
+
+    public static void mainLoop() throws Exception
+    {
         AircraftFactory aircraftFactory = new AircraftFactory();
         WeatherTower tower = new WeatherTower();
 
-        Flyable baloon = aircraftFactory.newAircraft("Baloon", "B1", new Coordinates(2, 3, 4));
-        Flyable jetPlane = aircraftFactory.newAircraft("JetPlane", "J1", new Coordinates(5, 6, 7));
-        Flyable helicopter = aircraftFactory.newAircraft("Helicopterasasd", "H1", new Coordinates(8, 9, 10));
+        for (int i = 0; i < types.length; i++)
+        {
+            Coordinates coordinates = new Coordinates(longitudes[i], latitudes[i], heights[i]);
+            Flyable flyable = aircraftFactory.newAircraft(types[i], names[i], coordinates);
+            tower.register(flyable);
+        }
 
-        tower.register(baloon);
-        tower.register(jetPlane);
-        tower.register(helicopter);
+        for (int j = 0; j < nLoop; j++)
+            tower.conditionChanged();
 
-        tower.conditionChanged();
-        baloon.getCoordinates().setHeight(0);
-        jetPlane.getCoordinates().setLongitude(0);
-        tower.conditionChanged();
-//
-//        tower.unregister(baloon);
-//        tower.unregister(jetPlane);
-//        tower.unregister(helicopter);
-
-//        if (!checkArgs(args))
-//            return;
+        tower.unregisterAll();
     }
 
 
@@ -72,14 +78,21 @@ public class Main {
     {
         List<String> lines = new ArrayList<>();
         File file = new File(filename);
-        Scanner scanner = new Scanner(file);
 
-        while (scanner.hasNextLine())
-            lines.add(scanner.nextLine());
+        try
+        {
+            Scanner scanner = new Scanner(file);
 
-        scanner.close();
+            while (scanner.hasNextLine())
+                lines.add(scanner.nextLine());
 
-        dataset = lines.toArray(new String[0]);
+            scanner.close();
+
+            dataset = lines.toArray(new String[0]);
+        }
+        catch (FileNotFoundException e) {
+            throw new Exceptions.InvalidFile(filename);
+        }
     }
 
 

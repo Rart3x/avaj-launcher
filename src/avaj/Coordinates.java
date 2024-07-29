@@ -1,6 +1,5 @@
 package avaj;
 
-import static avaj.Utils.*;
 
 public class Coordinates {
     private int longitude, latitude, height;
@@ -20,18 +19,18 @@ public class Coordinates {
         }
     }
 
-    public Coordinates(int p_longitude, int p_latitude, int p_height)
-    {
-        if (p_longitude < Limits.MIN.getValue() || p_latitude < Limits.MIN.getValue() || p_height < Limits.MIN.getValue())
-        {
-            printError("Longitude, Latitude, Height cannot be less than " + Limits.MIN.getValue());
-            return;
-        }
-        else if (p_height > Limits.MAX_HEIGHT.getValue())
-        {
-            printError("Height cannot be more than " + Limits.MAX_HEIGHT);
-            return;
-        }
+    public Coordinates(int p_longitude, int p_latitude, int p_height) throws Exception {
+        if (p_longitude < Limits.MIN.getValue())
+            throw new Exceptions.InvalidLongitude();
+
+        if (p_latitude < Limits.MIN.getValue())
+            throw new Exceptions.InvalidLatitude();
+
+        if (p_height < Limits.MIN.getValue())
+            throw new Exceptions.InvalidHeightMin();
+
+        if (p_height > Limits.MAX_HEIGHT.getValue())
+            throw new Exceptions.InvalidHeightMax();
 
         this.longitude = p_longitude;
         this.latitude = p_latitude;
