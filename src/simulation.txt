@@ -1,0 +1,6 @@
+Tower says: Baloon1#Baloon(0) registered to weather tower.
+Tower says: JetPlane1#JetPlane(1) registered to weather tower.
+Tower says: Helicopter1#Helicopter(2) registered to weather tower.
+Tower says: Baloon1#Baloon(0) unregistered from weather tower.
+Tower says: JetPlane1#JetPlane(1) unregistered from weather tower.
+Tower says: Helicopter1#Helicopter(2) unregistered from weather tower.
