@@ -50,7 +50,7 @@ public class Tower {
     public void unregisterAll()
     {
         while (!observers.isEmpty())
-            unregister(observers.getFirst());
+            unregister(observers.get(0));
     }
 
     protected void conditionChanged()
