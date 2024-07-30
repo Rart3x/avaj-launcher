@@ -111,7 +111,7 @@ public class Utils {
 
     public static void printInFile(String p_string)
     {
-        String filePath = "simulation.txt";
+        String filePath = "../simulation.txt";
 
         try
         {

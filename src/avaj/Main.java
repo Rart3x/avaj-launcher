@@ -41,7 +41,7 @@ public class Main {
 
     public static void mainLoop() throws Exception
     {
-        AircraftFactory aircraftFactory = new AircraftFactory();
+        AircraftFactory aircraftFactory = AircraftFactory.getInstance();
         WeatherTower tower = new WeatherTower();
 
         for (int i = 0; i < types.length; i++)
