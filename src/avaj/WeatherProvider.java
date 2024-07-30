@@ -1,5 +1,7 @@
 package avaj;
 
+import avaj.utils.Coordinates;
+
 public final class WeatherProvider {
     private final String[] weather;
     private static WeatherProvider weatherProvider;

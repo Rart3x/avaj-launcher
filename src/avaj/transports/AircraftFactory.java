@@ -1,4 +1,7 @@
-package avaj;
+package avaj.transports;
+
+import avaj.utils.Coordinates;
+import avaj.utils.Utils;
 
 import java.util.List;
 

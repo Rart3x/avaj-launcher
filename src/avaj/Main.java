@@ -1,5 +1,11 @@
 package avaj;
 
+import avaj.transports.AircraftFactory;
+import avaj.transports.Flyable;
+import avaj.utils.Coordinates;
+import avaj.utils.Exceptions;
+import avaj.utils.Utils;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 

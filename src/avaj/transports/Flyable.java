@@ -1,4 +1,7 @@
-package avaj;
+package avaj.transports;
+
+import avaj.utils.Coordinates;
+import avaj.WeatherTower;
 
 public abstract class Flyable {
     protected WeatherTower weatherTower;

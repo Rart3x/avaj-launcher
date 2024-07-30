@@ -1,4 +1,7 @@
-package avaj;
+package avaj.utils;
+
+import avaj.WeatherProvider;
+import avaj.transports.Flyable;
 
 import java.io.FileWriter;
 

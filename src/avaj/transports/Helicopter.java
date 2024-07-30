@@ -1,4 +1,7 @@
-package avaj;
+package avaj.transports;
+
+import avaj.utils.Coordinates;
+import avaj.WeatherProvider;
 
 public class Helicopter extends Aircraft {
 

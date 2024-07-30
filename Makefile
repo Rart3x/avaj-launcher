@@ -1,7 +1,10 @@
 SRC_DIR := src/avaj
+TRANSPORTS_DIR := $(SRC_DIR)/transports
+UTILS_DIR := $(SRC_DIR)/utils
+
 JC := javac
 
-SOURCES := $(wildcard $(SRC_DIR)/*.java)
+SOURCES := $(wildcard $(SRC_DIR)/*.java) $(wildcard $(TRANSPORTS_DIR)/*.java) $(wildcard $(UTILS_DIR)/*.java)
 
 MAIN_CLASS := Main
 

@@ -1,10 +1,13 @@
-package avaj;
+package avaj.transports;
+
+import avaj.utils.Coordinates;
+import avaj.WeatherTower;
 
 public class Aircraft extends Flyable {
     protected long          id;
     protected String        name, type;
-    protected Coordinates   coordinates;
-    protected WeatherTower  weatherTower;
+    protected Coordinates coordinates;
+    protected WeatherTower weatherTower;
 
     protected Aircraft(long p_id, String p_name, String p_type, Coordinates p_coordinate)
     {
