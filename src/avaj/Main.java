@@ -1,8 +1,8 @@
 package avaj;
 
 import avaj.transports.AircraftFactory;
+import avaj.transports.Coordinates;
 import avaj.transports.Flyable;
-import avaj.utils.Coordinates;
 import avaj.utils.Exceptions;
 import avaj.utils.Utils;
 
@@ -33,8 +33,7 @@ public class Main {
                 return;
             mainLoop();
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             Utils.printError(e.getMessage());
         }
     }
@@ -113,27 +112,37 @@ public class Main {
         heights = new int[dataset.length - 1];
 
         if (dataset.length < 2)
-            throw new Exception("Empty file");
+            throw new Exceptions.EmptyFile();
 
         for (String data : dataset)
         {
             if (i != 0)
             {
                 if (data.split(" ").length != 5)
-                    throw new Exception("Invalid number of values in line: " + data);
+                    throw new Exceptions.InvalidNumberOfLines();
 
                 if (!existentTypes.contains(data.split(" ")[0]))
-                    throw new Exception("Type not found: " + data.split(" ")[0]);
+                    throw new Exceptions.InvalidType();
 
                 types[i - 1] =  data.split(" ")[0];
                 names[i - 1] = data.split(" ")[1];
                 longitudes[i - 1] = Integer.parseInt(data.split(" ")[2]);
                 latitudes[i - 1] = Integer.parseInt(data.split(" ")[3]);
+
+                if (Integer.parseInt(data.split(" ")[4]) < 0)
+                    throw new Exceptions.InvalidHeightMin();
+                if (Integer.parseInt(data.split(" ")[4]) > 100)
+                    throw new Exceptions.InvalidHeightMax();
+
                 heights[i - 1] = Integer.parseInt(data.split(" ")[4]);
             }
             else
-                nLoop = Integer.parseInt(data);
+            {
+                if (Integer.parseInt(data) < 0)
+                    throw new Exceptions.InvalidNumberLoop();
 
+                nLoop = Integer.parseInt(data);
+            }
             i++;
         }
 

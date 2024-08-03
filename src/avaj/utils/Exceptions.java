@@ -1,10 +1,27 @@
 package avaj.utils;
 
 public class Exceptions {
+
+    public static class EmptyFile extends Exception {
+        public EmptyFile() { super("File is empty"); }
+    }
+
+
+    public static class InvalidNumberOfLines extends Exception {
+        public InvalidNumberOfLines() { super("Invalid number of lines"); }
+    }
+
+    public static class InvalidType extends Exception {
+        public InvalidType() { super("Invalid aircraft type"); }
+    }
+
+
     public static class InvalidHeightMin extends Exception {
-        public InvalidHeightMin() {
-            super("Height cannot be less than 0");
-        }
+        public InvalidHeightMin() { super("Height cannot be less than 0"); }
+    }
+
+    public static class InvalidNumberLoop extends Exception {
+        public InvalidNumberLoop() { super("Number of simulations cannot be less than 0"); }
     }
 
     public static class InvalidHeightMax extends Exception {
@@ -26,9 +43,6 @@ public class Exceptions {
     }
 
     public static class InvalidFile extends Exception {
-        public InvalidFile(String filename) {
-            super(filename + " file not found");
-        }
+        public InvalidFile(String filename) { super(filename + " file not found"); }
     }
-
 }

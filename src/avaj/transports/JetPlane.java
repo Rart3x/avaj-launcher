@@ -1,6 +1,5 @@
 package avaj.transports;
 
-import avaj.utils.Coordinates;
 import avaj.WeatherProvider;
 
 public class JetPlane extends Aircraft {

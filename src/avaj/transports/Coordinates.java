@@ -1,5 +1,7 @@
-package avaj.utils;
+package avaj.transports;
 
+
+import avaj.utils.Exceptions;
 
 public class Coordinates {
     private int longitude, latitude, height;
@@ -19,7 +21,8 @@ public class Coordinates {
         }
     }
 
-    public Coordinates(int p_longitude, int p_latitude, int p_height) throws Exception {
+    Coordinates(int p_longitude, int p_latitude, int p_height) throws Exception
+    {
         if (p_longitude < Limits.MIN.getValue())
             throw new Exceptions.InvalidLongitude();
 
@@ -40,11 +43,9 @@ public class Coordinates {
     public int getLongitude() {
         return longitude;
     }
-
     public int getLatitude() {
         return latitude;
     }
-
     public int getHeight() {
         return height;
     }
