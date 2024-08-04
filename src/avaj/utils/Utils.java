@@ -135,7 +135,6 @@ public class Utils {
     {
         System.out.println("\u001B[31mError: " + p_error + "\u001B[0m");
     }
-
     public static void printInfo(String p_info)
     {
         System.out.println("\u001B[34mInfo: " + p_info + "\u001B[0m");

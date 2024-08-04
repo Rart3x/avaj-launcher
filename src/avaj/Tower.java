@@ -30,6 +30,12 @@ public class Tower {
         );
     }
 
+    public void unregisterAll()
+    {
+        while (!observers.isEmpty())
+            unregister(observers.get(0));
+    }
+
     public void unregister(Flyable p_flyable)
     {
         observers.remove(p_flyable);
@@ -50,10 +56,8 @@ public class Tower {
         );
     }
 
-    public void unregisterAll()
-    {
-        while (!observers.isEmpty())
-            unregister(observers.get(0));
+    public void unregisterWithoutLog(Flyable p_flyable) {
+        observers.remove(p_flyable);
     }
 
     protected void conditionChanged()
@@ -62,17 +66,33 @@ public class Tower {
 
         for (Flyable flyable : observers)
         {
-            flyable.updateConditions();
-            if (flyable.getCoordinates().getHeight() == 0)
+            if (flyable.getCoordinates().getHeight() == 0 && !flyable.isLanded)
             {
-                Utils.printInFile("Tower says: " + flyable.getType() + "#" + flyable.getName() + "(" + flyable.getIdAsString() + ") landing.\n");
+                Utils.printInFile(flyable.getType() + "#" + flyable.getName() + "(" + flyable.getIdAsString() + ") landing.\n");
+                Utils.printInFile(
+                        Utils.concatString(
+                                "Tower says: ",
+                                Utils.concatString(
+                                        flyable.getType(),
+                                        "#",
+                                        flyable.getName(),
+                                        "(",
+                                        flyable.getIdAsString(),
+                                        ")"
+                                ),
+                                " unregistered from weather tower.",
+                                "\n"
+                        )
+                );
                 toUnregister.add(flyable);
+                flyable.isLanded = true;
             }
             else
                 Utils.printDependingOnWeather(flyable);
+            flyable.updateConditions();
         }
 
         for (Flyable toRemoved : toUnregister)
-            unregister(toRemoved);
+            unregisterWithoutLog(toRemoved);
     }
 }

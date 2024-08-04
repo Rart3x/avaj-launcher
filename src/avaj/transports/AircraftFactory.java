@@ -17,8 +17,7 @@ public final class AircraftFactory {
         return instance;
     }
 
-    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates)
-    {
+    public Flyable newAircraft(String p_type, String p_name, int p_longitude, int p_latitude, int p_height) throws Exception {
         Flyable flyable;
         String[] types = {"Baloon", "JetPlane", "Helicopter"};
 
@@ -31,13 +30,13 @@ public final class AircraftFactory {
         switch (p_type)
         {
             case "JetPlane":
-                flyable = new JetPlane(id, p_name, p_type, p_coordinates);
+                flyable = new JetPlane(id, p_name, p_type, p_longitude, p_latitude, p_height);
                 break;
             case "Helicopter":
-                flyable = new Helicopter(id, p_name, p_type, p_coordinates);
+                flyable = new Helicopter(id, p_name, p_type, p_longitude, p_latitude, p_height);
                 break;
             default:
-                flyable = new Baloon(id, p_name, "Baloon", p_coordinates);
+                flyable = new Baloon(id, p_name, "Baloon", p_longitude, p_latitude, p_height);
                 break;
         }
 

@@ -4,8 +4,8 @@ import avaj.WeatherProvider;
 
 public class Helicopter extends Aircraft {
 
-    public Helicopter(long p_id, String p_name, String p_type, Coordinates p_coordinates) {
-        super(p_id, p_name, p_type, p_coordinates);
+    public Helicopter(long p_id, String p_name, String p_type, int p_longitude, int p_latitude, int p_height) throws Exception {
+        super(p_id, p_name, p_type, p_longitude, p_latitude, p_height);
     }
 
     @Override

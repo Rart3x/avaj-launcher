@@ -53,7 +53,7 @@ public class Coordinates {
     public void setLongitude(int p_longitude)
     {
         if (p_longitude < Limits.MIN.getValue())
-            p_longitude = Limits.MIN.getValue();
+            longitude = Limits.MIN.getValue();
         else
             longitude = p_longitude;
     }
@@ -61,7 +61,7 @@ public class Coordinates {
     public void setLatitude(int p_latitude)
     {
         if (p_latitude < Limits.MIN.getValue())
-            p_latitude = Limits.MIN.getValue();
+            latitude = Limits.MIN.getValue();
         else
             latitude = p_latitude;
     }
@@ -69,9 +69,9 @@ public class Coordinates {
     public void setHeight(int p_height)
     {
         if (p_height < Limits.MIN.getValue())
-            p_height = Limits.MIN.getValue();
+            height = Limits.MIN.getValue();
         else if (p_height > Limits.MAX_HEIGHT.getValue())
-            p_height = Limits.MAX_HEIGHT.getValue();
+            height = Limits.MAX_HEIGHT.getValue();
         else
             height = p_height;
     }

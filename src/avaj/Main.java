@@ -45,9 +45,8 @@ public class Main {
 
         for (int i = 0; i < types.length; i++)
         {
-            Coordinates coordinates = new Coordinates(longitudes[i], latitudes[i], heights[i]);
-            Flyable flyable = aircraftFactory.newAircraft(types[i], names[i], coordinates);
-            tower.register(flyable);
+            Flyable flyable = aircraftFactory.newAircraft(types[i], names[i], longitudes[i], latitudes[i], heights[i]);
+            flyable.registerTower(tower);
         }
 
         for (int j = 0; j < nLoop; j++)

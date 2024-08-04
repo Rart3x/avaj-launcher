@@ -4,8 +4,8 @@ import avaj.WeatherProvider;
 
 public class Baloon extends Aircraft {
 
-    public Baloon(long p_id, String p_name, String p_type, Coordinates p_coordinates) {
-        super(p_id, p_name, p_type, p_coordinates);
+    public Baloon(long p_id, String p_name, String p_type, int p_longitude, int p_latitude, int p_height) throws Exception {
+        super(p_id, p_name, p_type, p_longitude, p_latitude, p_height);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package avaj.transports;
 
 import avaj.WeatherTower;
+import avaj.utils.Utils;
 
 public class Aircraft extends Flyable {
     protected long          id;
@@ -8,11 +9,11 @@ public class Aircraft extends Flyable {
     protected Coordinates   coordinates;
     protected WeatherTower  weatherTower;
 
-    protected Aircraft(long p_id, String p_name, String p_type, Coordinates p_coordinate) throws Exception {
+    protected Aircraft(long p_id, String p_name, String p_type, int p_longitude, int p_latitude, int p_height) throws Exception {
         this.id = p_id;
         this.name = p_name;
         this.type = p_type;
-        this.coordinates = new Coordinates(p_coordinate.getLongitude(), p_coordinate.getLatitude(), p_coordinate.getHeight());
+        this.coordinates = new Coordinates(p_longitude, p_latitude, p_height);
     }
 
     @Override
