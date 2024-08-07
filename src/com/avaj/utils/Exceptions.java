@@ -1,4 +1,4 @@
-package avaj.utils;
+package com.avaj.utils;
 
 public class Exceptions {
 
@@ -7,8 +7,8 @@ public class Exceptions {
     }
 
 
-    public static class InvalidNumberOfLines extends Exception {
-        public InvalidNumberOfLines() { super("Invalid number of lines"); }
+    public static class InvalidNumberOfArgs extends Exception {
+        public InvalidNumberOfArgs() { super("Invalid number of arguments"); }
     }
 
     public static class InvalidType extends Exception {

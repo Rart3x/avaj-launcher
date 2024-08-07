@@ -1,7 +1,7 @@
-package avaj.transports;
+package com.avaj.transports;
 
 
-import avaj.utils.Exceptions;
+import com.avaj.utils.Exceptions;
 
 public class Coordinates {
     private int longitude, latitude, height;

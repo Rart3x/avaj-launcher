@@ -1,7 +1,6 @@
-package avaj.transports;
+package com.avaj.transports;
 
-import avaj.WeatherTower;
-import avaj.utils.Utils;
+import com.avaj.WeatherTower;
 
 public class Aircraft extends Flyable {
     protected long          id;

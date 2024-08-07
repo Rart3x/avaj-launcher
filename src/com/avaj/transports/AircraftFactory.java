@@ -1,6 +1,6 @@
-package avaj.transports;
+package com.avaj.transports;
 
-import avaj.utils.Utils;
+import com.avaj.utils.Utils;
 
 import java.util.List;
 

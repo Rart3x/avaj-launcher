@@ -1,6 +1,6 @@
-package avaj.transports;
+package com.avaj.transports;
 
-import avaj.WeatherTower;
+import com.avaj.WeatherTower;
 
 public abstract class Flyable {
     protected WeatherTower weatherTower;

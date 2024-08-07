@@ -1,7 +1,7 @@
-package avaj;
+package com.avaj;
 
-import avaj.transports.Flyable;
-import avaj.utils.Utils;
+import com.avaj.transports.Flyable;
+import com.avaj.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

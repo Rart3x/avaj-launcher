@@ -1,10 +1,9 @@
-package avaj;
+package com.avaj;
 
-import avaj.transports.AircraftFactory;
-import avaj.transports.Coordinates;
-import avaj.transports.Flyable;
-import avaj.utils.Exceptions;
-import avaj.utils.Utils;
+import com.avaj.transports.AircraftFactory;
+import com.avaj.transports.Flyable;
+import com.avaj.utils.Exceptions;
+import com.avaj.utils.Utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -118,7 +117,7 @@ public class Main {
             if (i != 0)
             {
                 if (data.split(" ").length != 5)
-                    throw new Exceptions.InvalidNumberOfLines();
+                    throw new Exceptions.InvalidNumberOfArgs();
 
                 if (!existentTypes.contains(data.split(" ")[0]))
                     throw new Exceptions.InvalidType();

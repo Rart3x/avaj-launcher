@@ -1,4 +1,4 @@
-SRC_DIR := src/avaj
+SRC_DIR := src/com/avaj
 TRANSPORTS_DIR := $(SRC_DIR)/transports
 UTILS_DIR := $(SRC_DIR)/utils
 

@@ -1,6 +1,6 @@
-package avaj.transports;
+package com.avaj.transports;
 
-import avaj.WeatherProvider;
+import com.avaj.WeatherProvider;
 
 public class Helicopter extends Aircraft {
 

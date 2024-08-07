@@ -1,7 +1,6 @@
-package avaj.transports;
+package com.avaj.transports;
 
-import avaj.WeatherProvider;
-import avaj.utils.Utils;
+import com.avaj.WeatherProvider;
 
 public class JetPlane extends Aircraft {
 
